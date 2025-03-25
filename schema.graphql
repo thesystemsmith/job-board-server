@@ -2,8 +2,12 @@ type Query {
     jobs: [Job!]
 }
 
+""""
+this is a job post schema
+"""
 type Job{
     id: ID!
+    """ this is a doc comment for date"""
     date: String!
     title: String! 
     description: String
