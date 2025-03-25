@@ -6,5 +6,15 @@ export const resolvers = {
             const jobs = await getJobs();
             return jobs;
         }
+    },
+
+    Job: {
+        date: (job) => {
+            return  toIsoDate(job.createdAt)
+        }
     }
+}
+
+function toIsoDate(value){
+    return value.slice(0, 'yyyy-mm-dd'.length)
 }
