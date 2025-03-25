@@ -1,8 +1,13 @@
-import { getJobs } from "./db/jobs.js"
+import { getJobs, getJob } from "./db/jobs.js"
 import { getCompany } from "./db/companies.js";
 
 export const resolvers = {
     Query: {
+        job: async(_root, args) => {
+            const {id} = args
+            const job = await getJob(id);
+            return job;
+        },
         jobs: async () => {
             const jobs = await getJobs();
             return jobs;
